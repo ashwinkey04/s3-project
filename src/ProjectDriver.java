@@ -59,13 +59,13 @@ public class ProjectDriver extends JFrame {
 		});
 		btnAdminLogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		JButton btnMusicianLogin = new JButton("Musician Login");
-		btnMusicianLogin.addActionListener(new ActionListener() {
+		JButton btnLibrarianLogin = new JButton("Musician Login");
+		btnLibrarianLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MusicianLogin.main(new String[]{});
 			}
 		});
-		btnMusicianLogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnLibrarianLogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -77,7 +77,7 @@ public class ProjectDriver extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(140)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(btnMusicianLogin, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnLibrarianLogin, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnAdminLogin, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
 					.addContainerGap(95, Short.MAX_VALUE))
 		);
@@ -89,7 +89,7 @@ public class ProjectDriver extends JFrame {
 					.addGap(32)
 					.addComponent(btnAdminLogin, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnMusicianLogin, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnLibrarianLogin, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(70, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
