@@ -22,13 +22,14 @@ public class SQLHelper {
 
 		} catch (Exception e) {
 			throw e;
-		} 
+		}
 	}
-	
+
 	public void initTable() throws SQLException {
 		createStatement();
 		setTableName();
 	}
+
 	public void createStatement() throws SQLException {
 		statement = connect.createStatement();
 	}
@@ -41,13 +42,11 @@ public class SQLHelper {
 		ResultSet count_rs = statement.executeQuery("Select COUNT(*) from " + table);
 		count_rs.next();
 		count = count_rs.getInt("count");
-
-		System.out.println("COUNT ******************** " + count); // For logging
 		count_rs.close();
 		return count;
 	}
 
-	public void selectAll() throws SQLException {
+	public Musician[] selectAll() throws SQLException {
 		try {
 			initDB();
 		} catch (Exception e) {
@@ -57,7 +56,7 @@ public class SQLHelper {
 		resultSet = statement.executeQuery("SELECT * from " + table);
 
 		writeMetaData(resultSet);
-		writeResult(resultSet);
+		return writeResult(resultSet);
 
 	}
 
@@ -70,22 +69,32 @@ public class SQLHelper {
 		System.out.println(' ');
 	}
 
-	private Musician writeResult(ResultSet resultSet) throws SQLException {
-		Musician mus = new Musician();
+	private Musician[] writeResult(ResultSet resultSet) throws SQLException {
+
+		int count = getCount();
+		int index = 0;
+		Musician musician_array[] = new Musician[count];
+
+		System.out.println("****************** COUNT: " + count);
+
 		while (resultSet.next()) {
-			String m_id = resultSet.getString("m_id");
-			String m_name = resultSet.getString("m_name");
-			String m_addr = resultSet.getString("m_addr");
-			boolean licensed = resultSet.getBoolean("licensed");
-			int m_award = resultSet.getInt("m_award");
 			
-			System.out.println("m_id: " + m_id);
-			System.out.println("name: " + m_name);
-			System.out.println("m_addr: " + m_addr);
-			System.out.println("licensed: " + licensed);
-			System.out.println("m_awards: " + m_award);
+			musician_array[index] = new Musician();
+			musician_array[index].set_m_id(resultSet.getString("m_id"));
+			musician_array[index].set_m_name(resultSet.getString("m_name"));
+			musician_array[index].set_m_addr(resultSet.getString("m_addr"));
+			musician_array[index].set_licensed(resultSet.getBoolean("licensed"));
+			musician_array[index].set_m_award(resultSet.getInt("m_award"));
+
+			System.out.println(musician_array[index].get_m_id());
+			System.out.println(musician_array[index].get_m_name());
+			System.out.println(musician_array[index].get_m_addr());
+			System.out.println(musician_array[index].get_licensed());
+			System.out.println(musician_array[index].get_m_award());
+
+			index++;
 		}
-		return mus;
+		return musician_array;
 	}
 
 	protected void close() {
