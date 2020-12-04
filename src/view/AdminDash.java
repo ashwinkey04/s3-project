@@ -1,3 +1,4 @@
+package view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -7,16 +8,14 @@ import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
-public class AdminDash extends JFrame {
-	private static final long serialVersionUID = 1L;
-	static AdminDash frame;
-	private JPanel contentPane;
+import main.ProjectDriver;
+
+public class AdminDash extends BaseFrame {
 	
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,16 +29,10 @@ public class AdminDash extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public AdminDash() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 371);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		
+		super(); //Calls BaseFrame's constructor
+
+		setTitle("Admin dashboard");
 		JLabel lblAdminSection = new JLabel("Admin Dash");
 		lblAdminSection.setFont(SwingHelper.customFont(20));
 		lblAdminSection.setForeground(Color.GRAY);
@@ -48,18 +41,18 @@ public class AdminDash extends JFrame {
 		btnNewButton.setFont(SwingHelper.customFont(15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			MusicianForm.main(new String[]{});
-			frame.dispose();
+				AddMusician.main(new String[]{});
+				frame.dispose();
 			}
 		});
 		
-		JButton btnViewMusician = new JButton("View Musician");
-		btnViewMusician.addActionListener(new ActionListener() {
+		JButton btnLicenseMusician = new JButton("License Musician");
+		btnLicenseMusician.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			ViewMusician.main(new String[]{});
+			LicenseMusician.main(new String[]{});
 			}
 		});
-		btnViewMusician.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnLicenseMusician.setFont(SwingHelper.customFont(15));
 		
 		JButton btnDeleteMusician = new JButton("Delete Musician");
 		btnDeleteMusician.addActionListener(new ActionListener() {
@@ -68,7 +61,7 @@ public class AdminDash extends JFrame {
 			frame.dispose();
 			}
 		});
-		btnDeleteMusician.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnDeleteMusician.setFont(SwingHelper.customFont(15));
 		
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
@@ -77,7 +70,7 @@ public class AdminDash extends JFrame {
 				frame.dispose();
 			}
 		});
-		btnLogout.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnLogout.setFont(SwingHelper.customFont(15));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -90,7 +83,7 @@ public class AdminDash extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnLogout, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnDeleteMusician, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnViewMusician, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnLicenseMusician, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(109, Short.MAX_VALUE))
 		);
@@ -101,7 +94,7 @@ public class AdminDash extends JFrame {
 					.addGap(11)
 					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(btnViewMusician, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnLicenseMusician, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(btnDeleteMusician, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)

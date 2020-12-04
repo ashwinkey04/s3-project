@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Objects.Musician;
+import model.Musician;
 
 public class SQLHelper {
 	private static Connection connect = null;
@@ -58,9 +58,9 @@ public class SQLHelper {
 		return resultSet;
 
 	}
-	
+
 	public static String surroundQuote(String value) {
-		return "\'"+value+"\'";
+		return "\'" + value + "\'";
 	}
 
 	public void insertIntoTable(String values) throws Exception {
@@ -72,10 +72,22 @@ public class SQLHelper {
 			System.exit(0);
 		}
 	}
-	
-	public void deleteFromTable(String condition) throws Exception{
+
+	public void deleteFromTable(String condition) throws Exception {
+		System.out.println("delete from " + table + " where " + (condition));
 		try {
-			statement.execute("delete from "+ table + " where "+condition);
+			statement.execute("delete from " + table + " where " + condition);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+	}
+
+	public void updateTable(String set, String condition) throws Exception {
+		System.out.println("update " + table + " set " + set + " where " + (condition));
+		try {
+			statement.execute("update " + table + " set " + set + " where " + (condition));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());

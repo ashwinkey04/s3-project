@@ -1,4 +1,4 @@
-package Objects;
+package model;
 
 public class Musician {
 	String m_id;
@@ -7,12 +7,8 @@ public class Musician {
 	boolean licensed;
 	int m_award;
 
-	//Default Constructor
-	public Musician(){
-		
-	}
+	public Musician() {};//Default constructor
 	
-	//Parameterized Constructor
 	public Musician(String m_id, String m_name, String m_addr, boolean licensed, int m_award) {
 		this.m_id = m_id;
 		this.m_name = m_name;
@@ -21,7 +17,6 @@ public class Musician {
 		this.m_award = m_award;
 	}
 
-	// Set functions to assign values to the members of class
 	public void set_m_id(String m_id) {
 		this.m_id = m_id;
 	}
@@ -41,8 +36,6 @@ public class Musician {
 	public void set_m_award(int m_award) {
 		this.m_award = m_award;
 	}
-
-	// Get functions to access private members
 
 	public String get_m_id() {
 		return m_id;

@@ -1,3 +1,4 @@
+package view;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -15,5 +16,6 @@ public class SwingHelper {
 	public static Font customFont(int size) {
 		return new Font("Tahoma", Font.PLAIN, size);
 	}
+	
 	
 }

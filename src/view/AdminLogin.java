@@ -1,3 +1,4 @@
+package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,7 +17,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
-public class AdminLogin extends JFrame {
+public class AdminLogin extends BaseFrame {
+	
+	private static final long serialVersionUID = 1L;
 	static AdminLogin frame;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -42,6 +45,8 @@ public class AdminLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminLogin() {
+		super();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

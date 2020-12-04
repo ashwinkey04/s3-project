@@ -3,9 +3,10 @@ package DBHelpers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Objects.Musician;
+import model.Musician;
 
 public class MusicianSQL extends SQLHelper {
+	protected static MusicianSQL db = new MusicianSQL();
 
 	@Override
 	protected void setTableName() {
@@ -41,6 +42,27 @@ public class MusicianSQL extends SQLHelper {
 			index++;
 		}
 		return musician_array;
+	}
+	
+	public static void insert(Musician m) throws Exception {
+		MusicianSQL.initDB();
+		db.initTable();
+		db.insertIntoTable(db.getValuesString(m));
+		db.close();
+	}
+	
+	public static void delete(String m_id) throws Exception{
+		MusicianSQL.initDB();
+		db.initTable();
+		db.deleteFromTable("m_id = "+surroundQuote(m_id));
+		db.close();
+	}
+	
+	public static void issue_license(String m_id) throws Exception{
+		MusicianSQL.initDB();
+		db.initTable();
+		db.updateTable("licensed = true","m_id = "+surroundQuote(m_id));
+		db.close();
 	}
 
 	public static void main(String[] args) throws Exception {
