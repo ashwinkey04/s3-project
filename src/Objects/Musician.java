@@ -6,7 +6,21 @@ public class Musician {
 	String m_addr;
 	boolean licensed;
 	int m_award;
+
+	//Default Constructor
+	public Musician(){
+		
+	}
 	
+	//Parameterized Constructor
+	public Musician(String m_id, String m_name, String m_addr, boolean licensed, int m_award) {
+		this.m_id = m_id;
+		this.m_name = m_name;
+		this.m_addr = m_addr;
+		this.licensed = licensed;
+		this.m_award = m_award;
+	}
+
 	// Set functions to assign values to the members of class
 	public void set_m_id(String m_id) {
 		this.m_id = m_id;
@@ -27,8 +41,8 @@ public class Musician {
 	public void set_m_award(int m_award) {
 		this.m_award = m_award;
 	}
-	
-	//Get functions to access private members
+
+	// Get functions to access private members
 
 	public String get_m_id() {
 		return m_id;
@@ -49,7 +63,5 @@ public class Musician {
 	public int get_m_award() {
 		return m_award;
 	}
-	
-	
-	
+
 }

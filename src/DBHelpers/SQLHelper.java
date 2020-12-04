@@ -34,7 +34,7 @@ public class SQLHelper {
 		statement = connect.createStatement();
 	}
 
-	public void setTableName() {
+	protected void setTableName() {
 		table = "Musician"; // Setting musician as default table to avoid NPE
 	}
 
@@ -46,55 +46,50 @@ public class SQLHelper {
 		return count;
 	}
 
-	public Musician[] selectAll() throws SQLException {
+	public ResultSet selectAll() throws SQLException {
 		try {
 			initDB();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(table);
 		resultSet = statement.executeQuery("SELECT * from " + table);
 
 		writeMetaData(resultSet);
-		return writeResult(resultSet);
+		return resultSet;
 
+	}
+	
+	public static String surroundQuote(String value) {
+		return "\'"+value+"\'";
+	}
+
+	public void insertIntoTable(String values) throws Exception {
+		try {
+			statement.execute("Insert into " + table + " values " + values);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+	}
+	
+	public void deleteFromTable(String condition) throws Exception{
+		try {
+			statement.execute("delete from "+ table + " where "+condition);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
 	}
 
 	// For Logging
 	private void writeMetaData(ResultSet resultSet) throws SQLException {
-		System.out.println("Table: " + resultSet.getMetaData().getTableName(1));
+		System.out.println("Metadata for Table: " + resultSet.getMetaData().getTableName(1));
 		for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
 			System.out.println("Column " + i + " " + resultSet.getMetaData().getColumnName(i));
 		}
 		System.out.println(' ');
-	}
-
-	private Musician[] writeResult(ResultSet resultSet) throws SQLException {
-
-		int count = getCount();
-		int index = 0;
-		Musician musician_array[] = new Musician[count];
-
-		System.out.println("****************** COUNT: " + count);
-
-		while (resultSet.next()) {
-			
-			musician_array[index] = new Musician();
-			musician_array[index].set_m_id(resultSet.getString("m_id"));
-			musician_array[index].set_m_name(resultSet.getString("m_name"));
-			musician_array[index].set_m_addr(resultSet.getString("m_addr"));
-			musician_array[index].set_licensed(resultSet.getBoolean("licensed"));
-			musician_array[index].set_m_award(resultSet.getInt("m_award"));
-
-			System.out.println(musician_array[index].get_m_id());
-			System.out.println(musician_array[index].get_m_name());
-			System.out.println(musician_array[index].get_m_addr());
-			System.out.println(musician_array[index].get_licensed());
-			System.out.println(musician_array[index].get_m_award());
-
-			index++;
-		}
-		return musician_array;
 	}
 
 	protected void close() {
