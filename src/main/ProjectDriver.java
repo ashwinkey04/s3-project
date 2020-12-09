@@ -59,6 +59,7 @@ public class ProjectDriver extends BaseFrame {
 		btnLibrarianLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MusicianLogin.main(new String[] {});
+				frame.dispose();
 			}
 		});
 		btnLibrarianLogin.setFont(SwingHelper.customFont(15));

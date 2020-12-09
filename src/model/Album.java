@@ -58,6 +58,10 @@ public class Album {
 		this.studio_id = studio_id;
 	}
 
+	public String get_alb_id() {
+		return alb_id;
+	}
+	
 	public String get_title() {
 		return title;
 	}
@@ -78,11 +82,11 @@ public class Album {
 		return price;
 	}
 
-	public String staff_id() {
+	public String get_staff_id() {
 		return staff_id;
 	}
 
-	public String studio_id() {
+	public String get_studio_id() {
 		return studio_id;
 	}
 

@@ -1,6 +1,7 @@
 package DBHelpers;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,6 +61,11 @@ public class SQLHelper {
 	}
 
 	public static String surroundQuote(String value) {
+		return "\'" + value + "\'";
+	}
+	
+
+	public static String surroundQuote(Date value) {
 		return "\'" + value + "\'";
 	}
 
