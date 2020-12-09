@@ -128,6 +128,7 @@ public class AddSong extends BaseFrame {
 		add(btn1);
 
 		btn2 = new JButton("Back");
+		btn2.setBounds(300, 400, 100, 30);
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -135,7 +136,6 @@ public class AddSong extends BaseFrame {
 			}
 		});
 		add(btn2);
-
 		setVisible(true);
 	}
 
