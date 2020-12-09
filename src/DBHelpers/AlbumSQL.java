@@ -23,7 +23,7 @@ public class AlbumSQL extends SQLHelper {
 						surroundQuote(album.get_alb_lang())+","+
 						(album.get_price())+","+
 						surroundQuote(album.get_staff_id())+","+
-						surroundQuote(album.get_studio_id())+","+
+						surroundQuote(album.get_studio_id())+
 						")";
 		return values;
 				

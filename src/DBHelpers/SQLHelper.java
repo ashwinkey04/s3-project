@@ -70,6 +70,7 @@ public class SQLHelper {
 	}
 
 	public void insertIntoTable(String values) throws Exception {
+		System.out.print("Insert into " + table + " values " + values);
 		try {
 			statement.execute("Insert into " + table + " values " + values);
 		} catch (Exception e) {

@@ -10,6 +10,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import main.ProjectDriver;
 
@@ -32,7 +33,7 @@ public class AdminDash extends BaseFrame {
 
 	public AdminDash() {
 		super(); // Calls BaseFrame's constructor
-		setMinimumSize(new Dimension(200,570));
+		setMinimumSize(new Dimension(200,540));
 		setTitle("Admin dashboard");
 		JLabel lblAdminSection = new JLabel("Admin Dash");
 		lblAdminSection.setFont(SwingHelper.customFont(20));
@@ -51,6 +52,7 @@ public class AdminDash extends BaseFrame {
 		btnLicenseMusician.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				LicenseMusician.main(new String[] {});
+				frame.dispose();
 			}
 		});
 		btnLicenseMusician.setFont(SwingHelper.customFont(15));
@@ -73,14 +75,6 @@ public class AdminDash extends BaseFrame {
 		});
 		btnAddLyricist.setFont(SwingHelper.customFont(15));
 
-		JButton btnAddSinger = new JButton("Add Singer");
-		btnAddSinger.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddSinger.main(new String[] {});
-				frame.dispose();
-			}
-		});
-		btnAddSinger.setFont(SwingHelper.customFont(15));
 		
 		JButton btnAddStaff = new JButton("Add Staff");
 		btnAddStaff.addActionListener(new ActionListener() {
@@ -96,6 +90,7 @@ public class AdminDash extends BaseFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				ProjectDriver.main(new String[] {});
 				frame.dispose();
+				JOptionPane.showMessageDialog(frame, "Logged out" + " successfully!");
 			}
 		});
 		btnLogout.setFont(SwingHelper.customFont(15));
@@ -121,8 +116,6 @@ public class AdminDash extends BaseFrame {
 										.addComponent(btnAddStaff, GroupLayout.PREFERRED_SIZE, 181,
 												GroupLayout.PREFERRED_SIZE)
 										.addComponent(btnAddLyricist, GroupLayout.PREFERRED_SIZE, 181,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnAddSinger, GroupLayout.PREFERRED_SIZE, 181,
 												GroupLayout.PREFERRED_SIZE))
 								.addContainerGap(109, Short.MAX_VALUE)));
 		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
@@ -130,7 +123,6 @@ public class AdminDash extends BaseFrame {
 				.addComponent(lblAdminSection, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE).addGap(11)
 				.addComponent(btnAddMusician, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE).addGap(18)
 				.addComponent(btnLicenseMusician, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addComponent(btnAddSinger, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE).addGap(18)
 				.addComponent(btnAddStaff, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE).addGap(18)
 				.addComponent(btnAddLyricist, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE).addGap(18)
 				.addComponent(btnDeleteMusician, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE).addGap(18)

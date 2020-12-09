@@ -18,8 +18,8 @@ public class LyricistSQL extends SQLHelper {
 						surroundQuote(Lyricist.get_ly_id())+","+
 						surroundQuote(Lyricist.get_ly_name())+","+
 						surroundQuote(Lyricist.get_ly_addr())+","+
-						Lyricist.get_ly_award()+
-						surroundQuote(Lyricist.get_lang())+","+
+						Lyricist.get_ly_award()+","+
+						surroundQuote(Lyricist.get_lang())+
 						")";
 		return values;
 				

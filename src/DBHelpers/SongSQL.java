@@ -22,7 +22,7 @@ public class SongSQL extends SQLHelper {
 						surroundQuote(song.get_singer())+","+
 						surroundQuote(song.get_duration())+","+
 						surroundQuote(song.get_genre())+","+
-						surroundQuote(song.get_ly_id())+","+
+						surroundQuote(song.get_ly_id())+
 						")";
 		return values;
 				

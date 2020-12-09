@@ -17,9 +17,10 @@ public class StaffSQL extends SQLHelper {
 		String values = "(" +
 						surroundQuote(Staff.get_staff_id())+","+
 						surroundQuote(Staff.get_staff_name())+","+
-						Staff.get_salary()+
-						surroundQuote(Staff.get_join_date())+","+
+						Staff.get_salary()+","+
+						surroundQuote(Staff.get_join_date())+
 						")";
+		System.out.println(values);
 		return values;
 				
 	}
