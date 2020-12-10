@@ -40,7 +40,7 @@ public class BuyerSpace extends BaseFrame {
 		JButton btnAddAlb = new JButton("Buy Album");
 		btnAddAlb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AddAlbum.main(new String[] {});
+				BuyAlbum.main(new String[] {});
 				frame.dispose();
 			}
 		});

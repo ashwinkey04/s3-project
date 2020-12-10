@@ -1,14 +1,20 @@
 package view;
 
-import javax.swing.*;
-
-import DBHelpers.StaffSQL;
-import model.Staff;
-
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import DBHelpers.StaffSQL;
+import model.Staff;
 
 public class AddStaff extends BaseFrame {
 

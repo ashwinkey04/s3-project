@@ -7,13 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.Musician;
-
 public class SQLHelper {
 	private static Connection connect = null;
 	protected String table;
-	private Statement statement = null;
-	private ResultSet resultSet = null;
+	private static Statement statement = null;
+	private static ResultSet resultSet = null;
 	int count;
 
 	public static void initDB() throws Exception {
@@ -54,10 +52,18 @@ public class SQLHelper {
 			e.printStackTrace();
 		}
 		resultSet = statement.executeQuery("SELECT * from " + table);
-
 		writeMetaData(resultSet);
 		return resultSet;
 
+	}
+	
+	public static ResultSet execCommand(String cmd) {
+		try {
+			resultSet = statement.executeQuery(cmd);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultSet;
 	}
 
 	public static String surroundQuote(String value) {

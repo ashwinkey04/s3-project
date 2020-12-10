@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Album;
-import model.Album;
 
 public class AlbumSQL extends SQLHelper {
 	protected static AlbumSQL db = new AlbumSQL();

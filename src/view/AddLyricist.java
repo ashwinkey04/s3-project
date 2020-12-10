@@ -1,13 +1,18 @@
 package view;
 
-import javax.swing.*;
-
-import DBHelpers.LyricistSQL;
-
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import DBHelpers.LyricistSQL;
 import model.Lyricist;
 
 public class AddLyricist extends BaseFrame {

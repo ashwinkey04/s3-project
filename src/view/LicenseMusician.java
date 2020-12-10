@@ -1,12 +1,15 @@
 package view;
 
-import javax.swing.*;
-
-import DBHelpers.MusicianSQL;
-
-import java.awt.*;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import DBHelpers.MusicianSQL;
 
 public class LicenseMusician extends BaseFrame {
 	private static final long serialVersionUID = 1L;
